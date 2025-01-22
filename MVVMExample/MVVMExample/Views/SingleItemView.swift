@@ -6,9 +6,6 @@ struct SingleItemView: View {
     
     var body: some View {
         VStack {
-            Button("View Action 1") {
-                viewModel.viewActionOne()
-            }
             Text("Title: \(viewModel.item.title)")
             Text("Count: \(viewModel.item.count)")
         }
@@ -25,11 +22,10 @@ extension SingleItemView {
         init(item: SingleItem) {
             self.item = item
         }
-        
-        func viewActionOne() {
-            let shuffledTitle = String(item.title.shuffled())
-            let newCount = item.count + 1
-            item = .init(title: shuffledTitle, count: newCount)
-        }
     }
+}
+
+struct SingleItem {
+    let title: String
+    let count: Int
 }

@@ -7,6 +7,13 @@ protocol PromptPipelineRunner {
     )
 }
 
+extension AiderControl {
+    enum Constants {
+        static let appProjectRoot = "Swot_It/SwotItApp/"
+        static let aiGeneratorRoot = "AIGenerator/"
+    }
+}
+
 struct AiderControl {
     
     var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.dryRunPipeline()
@@ -16,6 +23,8 @@ struct AiderControl {
      */
     func run() {
         
+        runSavedDecksViewBuilder()
+        runDeckGeneratorViewBuilder()
         
 /** Generation History **/
 //        generateMocksForDomainDataModels()

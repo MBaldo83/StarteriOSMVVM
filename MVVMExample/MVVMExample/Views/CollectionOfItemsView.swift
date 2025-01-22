@@ -6,9 +6,6 @@ struct CollectionOfItemsView: View {
     
     var body: some View {
         VStack {
-            Button("View Action 1") {
-                viewModel.viewActionOne()
-            }
             ForEach(0..<viewModel.itemsCollection.count, id: \.self) { index in
                 let item = viewModel.itemsCollection[index]
                 VStack {
@@ -29,13 +26,6 @@ extension CollectionOfItemsView {
         
         init(itemsCollection: [SingleItem]) {
             self.itemsCollection = itemsCollection
-        }
-        
-        func viewActionOne() {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm:ss"
-            let currentTime = dateFormatter.string(from: Date())
-            itemsCollection.append(.mock(title: currentTime))
         }
     }
 }
