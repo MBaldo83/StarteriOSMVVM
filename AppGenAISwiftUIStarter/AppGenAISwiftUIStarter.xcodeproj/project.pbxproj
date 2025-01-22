@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		1A7134302D3CD2C300F4EDE0 /* MVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A7135492D41276900F4EDE0 /* AppGenAISwiftUIStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppGenAISwiftUIStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1A7134322D3CD2C300F4EDE0 /* MVVMExample */ = {
+		1A71354B2D41276900F4EDE0 /* AppGenAISwiftUIStarter */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MVVMExample;
+			path = AppGenAISwiftUIStarter;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1A71342D2D3CD2C300F4EDE0 /* Frameworks */ = {
+		1A7135462D41276900F4EDE0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A7134272D3CD2C300F4EDE0 = {
+		1A7135402D41276900F4EDE0 = {
 			isa = PBXGroup;
 			children = (
-				1A7134322D3CD2C300F4EDE0 /* MVVMExample */,
-				1A7134312D3CD2C300F4EDE0 /* Products */,
+				1A71354B2D41276900F4EDE0 /* AppGenAISwiftUIStarter */,
+				1A71354A2D41276900F4EDE0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1A7134312D3CD2C300F4EDE0 /* Products */ = {
+		1A71354A2D41276900F4EDE0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A7134302D3CD2C300F4EDE0 /* MVVMExample.app */,
+				1A7135492D41276900F4EDE0 /* AppGenAISwiftUIStarter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A71342F2D3CD2C300F4EDE0 /* MVVMExample */ = {
+		1A7135482D41276900F4EDE0 /* AppGenAISwiftUIStarter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A71343E2D3CD2C400F4EDE0 /* Build configuration list for PBXNativeTarget "MVVMExample" */;
+			buildConfigurationList = 1A7135572D41276A00F4EDE0 /* Build configuration list for PBXNativeTarget "AppGenAISwiftUIStarter" */;
 			buildPhases = (
-				1A71342C2D3CD2C300F4EDE0 /* Sources */,
-				1A71342D2D3CD2C300F4EDE0 /* Frameworks */,
-				1A71342E2D3CD2C300F4EDE0 /* Resources */,
+				1A7135452D41276900F4EDE0 /* Sources */,
+				1A7135462D41276900F4EDE0 /* Frameworks */,
+				1A7135472D41276900F4EDE0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				1A7134322D3CD2C300F4EDE0 /* MVVMExample */,
+				1A71354B2D41276900F4EDE0 /* AppGenAISwiftUIStarter */,
 			);
-			name = MVVMExample;
+			name = AppGenAISwiftUIStarter;
 			packageProductDependencies = (
 			);
-			productName = MVVMExample;
-			productReference = 1A7134302D3CD2C300F4EDE0 /* MVVMExample.app */;
+			productName = AppGenAISwiftUIStarter;
+			productReference = 1A7135492D41276900F4EDE0 /* AppGenAISwiftUIStarter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1A7134282D3CD2C300F4EDE0 /* Project object */ = {
+		1A7135412D41276900F4EDE0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					1A71342F2D3CD2C300F4EDE0 = {
+					1A7135482D41276900F4EDE0 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = 1A71342B2D3CD2C300F4EDE0 /* Build configuration list for PBXProject "MVVMExample" */;
+			buildConfigurationList = 1A7135442D41276900F4EDE0 /* Build configuration list for PBXProject "AppGenAISwiftUIStarter" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 1A7134272D3CD2C300F4EDE0;
+			mainGroup = 1A7135402D41276900F4EDE0;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 1A7134312D3CD2C300F4EDE0 /* Products */;
+			productRefGroup = 1A71354A2D41276900F4EDE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1A71342F2D3CD2C300F4EDE0 /* MVVMExample */,
+				1A7135482D41276900F4EDE0 /* AppGenAISwiftUIStarter */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1A71342E2D3CD2C300F4EDE0 /* Resources */ = {
+		1A7135472D41276900F4EDE0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1A71342C2D3CD2C300F4EDE0 /* Sources */ = {
+		1A7135452D41276900F4EDE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1A71343C2D3CD2C400F4EDE0 /* Debug */ = {
+		1A7135552D41276A00F4EDE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		1A71343D2D3CD2C400F4EDE0 /* Release */ = {
+		1A7135562D41276A00F4EDE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,14 +244,14 @@
 			};
 			name = Release;
 		};
-		1A71343F2D3CD2C400F4EDE0 /* Debug */ = {
+		1A7135582D41276A00F4EDE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MVVMExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AppGenAISwiftUIStarter/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -264,7 +264,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = double.dot.development.MVVMExample;
+				PRODUCT_BUNDLE_IDENTIFIER = double.dot.development.AppGenAISwiftUIStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -272,14 +272,14 @@
 			};
 			name = Debug;
 		};
-		1A7134402D3CD2C400F4EDE0 /* Release */ = {
+		1A7135592D41276A00F4EDE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MVVMExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AppGenAISwiftUIStarter/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -292,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = double.dot.development.MVVMExample;
+				PRODUCT_BUNDLE_IDENTIFIER = double.dot.development.AppGenAISwiftUIStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -303,25 +303,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A71342B2D3CD2C300F4EDE0 /* Build configuration list for PBXProject "MVVMExample" */ = {
+		1A7135442D41276900F4EDE0 /* Build configuration list for PBXProject "AppGenAISwiftUIStarter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A71343C2D3CD2C400F4EDE0 /* Debug */,
-				1A71343D2D3CD2C400F4EDE0 /* Release */,
+				1A7135552D41276A00F4EDE0 /* Debug */,
+				1A7135562D41276A00F4EDE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A71343E2D3CD2C400F4EDE0 /* Build configuration list for PBXNativeTarget "MVVMExample" */ = {
+		1A7135572D41276A00F4EDE0 /* Build configuration list for PBXNativeTarget "AppGenAISwiftUIStarter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A71343F2D3CD2C400F4EDE0 /* Debug */,
-				1A7134402D3CD2C400F4EDE0 /* Release */,
+				1A7135582D41276A00F4EDE0 /* Debug */,
+				1A7135592D41276A00F4EDE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1A7134282D3CD2C300F4EDE0 /* Project object */;
+	rootObject = 1A7135412D41276900F4EDE0 /* Project object */;
 }

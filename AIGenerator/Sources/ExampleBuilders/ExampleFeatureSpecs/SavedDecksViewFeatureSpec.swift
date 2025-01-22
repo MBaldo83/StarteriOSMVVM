@@ -4,12 +4,12 @@ extension ViewSpecification {
     static func savedDecksViewFeatureSpec() -> ViewSpecification {
         .init(
             viewName: "SavedDecksView",
-            viewFolderPath: "\(AiderControl.Constants.appProjectRoot)Views/SavedDecksView/",
+            viewFolderPath: "\(AiderControl.Constants.appModuleRoot)Views/",
             models: [
                 .init(
                     variableName: "savedDecks",
                     modelType: "LocalDeck",
-                    modelPath: "\(AiderControl.Constants.appProjectRoot)Domain/Question.swift",
+                    modelPath: "\(AiderControl.Constants.appModuleRoot)Domain/LocalDeck.swift",
                     isCollection: true
                 )
             ]

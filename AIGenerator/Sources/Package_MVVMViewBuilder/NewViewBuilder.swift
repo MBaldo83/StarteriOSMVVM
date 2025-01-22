@@ -8,7 +8,7 @@ extension ViewSpecification {
 }
 
 extension ViewSpecification {
-    var filesNeededToCreate: [String] {
+    var domainModelFilePaths: [String] {
         return models.map { $0.modelPath }
     }
     
@@ -16,14 +16,18 @@ extension ViewSpecification {
         "\(AiderControl.Constants.aiGeneratorRoot)\(MVVMViewBuilder.Constants.exampleViewsRoot)\(exampleViewFileName)"
     }
     
-    private var exampleViewFileName: String {
-        containsCollection ? "SingleItemView.swift" : "CollectionOfItemsView.swift"
+    var exampleViewFileName: String {
+        "\(exampleViewName).swift"
+    }
+    
+    var exampleViewName: String {
+        containsCollection ? "SingleItemView" : "CollectionOfItemsView"
     }
 }
 
 extension NewViewBuilder: PromptConfig {
     var filesToAdd: [String] {
-        newView.filesNeededToCreate +
+        newView.domainModelFilePaths +
         [newView.exampleViewPath]
     }
 }
@@ -39,27 +43,13 @@ struct NewViewBuilder: PromptCreator {
     let newView: ViewSpecification
     
     func prompt() -> String {
-        newView.containsCollection ? collectionItemViewPrompt : singleItemViewPrompt
+    """
+    Using \(newView.exampleViewName) as an example, make a new view \(newView.viewName) in \(newView.viewFolderPath) \
+    that is initialised with variables: \(newView.modelVariablesString). \
+    Using \(newView.exampleViewName)ViewModel as an example, make a \(newView.viewName)ViewModel in the same file as \(newView.viewName) \
+    This is a first draft, keep the solution simple. IMPORTANT: implement the solution without asking any questions
+    """
     }
-    
-    private var singleItemViewPrompt: String {
-                """
-        Using SingleItemView as an example, make a new view \(newView.viewName) in \(newView.viewFolderPath) \
-        that is initialised with variables: \(newView.modelVariablesString). \
-        make a \(newView.viewName)ViewModel in the same file as \(newView.viewName) \
-        This is a first draft, keep the solution simple. IMPORTANT: implement the solution without asking any questions
-        """
-    }
-    
-    private var collectionItemViewPrompt: String {
-                """
-        Using CollectionOfItemsView as an example, make a new view \(newView.viewName) in \(newView.viewFolderPath) \
-        that is initialised with variables: \(newView.modelVariablesString). \
-        make a \(newView.viewName)ViewModel in the same file as \(newView.viewName) \
-        This is a first draft, keep the solution simple. IMPORTANT: implement the solution without asking any questions
-        """
-    }
-    
 }
 
 struct MVVMViewBuilder {

@@ -9,14 +9,14 @@ protocol PromptPipelineRunner {
 
 extension AiderControl {
     enum Constants {
-        static let appProjectRoot = "Swot_It/SwotItApp/"
+        static let appModuleRoot = "AppGenAISwiftUIStarter/AppGenAISwiftUIStarter/"
         static let aiGeneratorRoot = "AIGenerator/"
     }
 }
 
 struct AiderControl {
     
-    var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.dryRunPipeline()
+    var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.aiderProductionPipeline()
     
     /**
      Control your generation by editing the commands below.
@@ -24,11 +24,9 @@ struct AiderControl {
     func run() {
         
         runSavedDecksViewBuilder()
-        runDeckGeneratorViewBuilder()
         
-/** Generation History **/
-//        generateMocksForDomainDataModels()
-//        generateViewHandlerUnitTests()
-//        generateDeckResultsNavigation()
+        /** Generation History **/
+//        runDeckGeneratorViewBuilder()
+        
     }
 }
