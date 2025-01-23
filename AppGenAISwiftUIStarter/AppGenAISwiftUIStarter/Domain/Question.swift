@@ -1,6 +1,7 @@
 import Foundation
 
-struct Question {
+struct Question: Identifiable {
+    let id: UUID
     let question: String
     let answer: String
 }
