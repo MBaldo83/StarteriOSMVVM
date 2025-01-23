@@ -11,7 +11,7 @@ extension AiderControl {
     }
     
     func runSavedDecksViewBuilder() {
-        let viewBuilder = NewViewBuilder(newView: .deckGeneratorViewFeatureSpec())
+        let viewBuilder = NewViewBuilder(newView: .savedDecksViewFeatureSpec())
         promptPipelineRunner.inference(
             using: viewBuilder,
             with: viewBuilder
