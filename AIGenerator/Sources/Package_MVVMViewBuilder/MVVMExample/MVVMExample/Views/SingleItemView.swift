@@ -10,12 +10,27 @@ struct SingleItemView: View {
     @State var viewModel: ViewModel
     
     var body: some View {
+        SingleItemContentView(
+            item: viewModel.item,
+            viewActionOne: viewModel.viewActionOne
+        )
+    }
+}
+
+// This can be used in Previews
+struct SingleItemContentView: View {
+    
+    let item: SingleItem
+    let viewActionOne: () -> Void
+    
+    var body: some View {
         VStack {
-            Button("View Action 1") {
-                viewModel.viewActionOne()
-            }
-            Text("Title: \(viewModel.item.title)")
-            Text("Count: \(viewModel.item.count)")
+            Button(
+                "View Action 1",
+                action: viewActionOne
+            )
+            Text("Title: \(item.title)")
+            Text("Count: \(item.count)")
         }
     }
 }

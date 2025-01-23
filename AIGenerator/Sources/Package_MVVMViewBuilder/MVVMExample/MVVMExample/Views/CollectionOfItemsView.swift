@@ -5,15 +5,30 @@ struct CollectionOfItemsView: View {
     @State var viewModel: ViewModel
     
     var body: some View {
+        CollectionOfItemsContentView(
+            itemsCollection: viewModel.itemsCollection,
+            viewActionOne: viewModel.viewActionOne
+        )
+    }
+}
+
+// This can be used in Previews
+struct CollectionOfItemsContentView: View {
+    
+    let itemsCollection: [SingleItem]
+    let viewActionOne: () -> Void
+    
+    var body: some View {
         VStack {
-            Button("View Action 1") {
-                viewModel.viewActionOne()
-            }
-            ForEach(0..<viewModel.itemsCollection.count, id: \.self) { index in
-                let item = viewModel.itemsCollection[index]
+            Button(
+                "View Action 1",
+                action: viewActionOne
+            )
+            ForEach(0..<itemsCollection.count, id: \.self) { index in
+                let item = itemsCollection[index]
                 VStack {
                     Text("Title: \(item.title)")
-                    Text("Count: \(viewModel.itemsCollection.count)")
+                    Text("Count: \(itemsCollection.count)")
                 }
             }
         }
