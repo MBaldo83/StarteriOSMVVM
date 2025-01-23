@@ -1,0 +1,1 @@
+- Swift files don't need to be explicitly imported to be visible within the same project
