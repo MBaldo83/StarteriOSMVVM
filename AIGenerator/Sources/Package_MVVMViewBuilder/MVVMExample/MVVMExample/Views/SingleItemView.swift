@@ -1,5 +1,10 @@
 import SwiftUI
 
+struct SingleItem {
+    let title: String
+    let count: Int
+}
+
 struct SingleItemView: View {
     
     @State var viewModel: ViewModel
