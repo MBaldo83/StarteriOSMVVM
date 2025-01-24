@@ -41,7 +41,7 @@ extension DeckGeneratorView {
         func viewActionOne() {
             // Placeholder for view action. Update as needed
             if let firstQuestion = questions.first {
-                questions[0] = Question(question: firstQuestion.question + "!", answer: firstQuestion.answer)
+                questions[0] = Question(id: UUID(), question: firstQuestion.question + "!", answer: firstQuestion.answer)
             }
         }
     }

@@ -1,17 +1,20 @@
-//
-//  AppGenAISwiftUIStarterApp.swift
-//  AppGenAISwiftUIStarter
-//
-//  Created by Michael Baldock on 22/01/2025.
-//
-
 import SwiftUI
 
 @main
 struct AppGenAISwiftUIStarterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootTabView(
+                buildTabZero: {
+                    Text("Tab 0")
+                },
+                buildTabOne: {
+                    Text("Tab 1")
+                },
+                buildTabTwo: {
+                    Text("Tab 2")
+                }
+            )
         }
     }
 }
