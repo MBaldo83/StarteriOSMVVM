@@ -17,4 +17,12 @@ extension AiderControl {
             with: viewBuilder
         )
     }
+    
+    func runDeckDetailViewBuilder() {
+        let viewBuilder = NewViewBuilder(newView: .deckDetailViewSpecification())
+        promptPipelineRunner.inference(
+            using: viewBuilder,
+            with: viewBuilder
+        )
+    }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Environment(Router.self) private var router: Router
+    @Environment(ExampleRouter.self) private var router: ExampleRouter
     
     var body: some View {
         HomeContentView(

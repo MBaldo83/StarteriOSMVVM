@@ -1,7 +1,7 @@
 import Foundation
 
-extension ViewSpecification {
-    static func deckGeneratorViewFeatureSpec() -> ViewSpecification {
+extension MVVM.ViewSpecification {
+    static func deckGeneratorViewFeatureSpec() -> MVVM.ViewSpecification {
         .init(
             viewName: "DeckGeneratorView",
             viewFolderPath: "\(AiderControl.Constants.appModuleRoot)Views/",

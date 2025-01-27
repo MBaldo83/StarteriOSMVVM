@@ -3,12 +3,12 @@ import SwiftUI
 
 @MainActor
 @Observable
-public class Router {
+public class ExampleRouter {
     
     var routePath: [Route] = []
-    var routeViewBuilder: SwiftUIRouteViewBuilder
+    var routeViewBuilder: ExampleSwiftUIRouteViewBuilder
     
-    init(routeViewBuilder: SwiftUIRouteViewBuilder) {
+    init(routeViewBuilder: ExampleSwiftUIRouteViewBuilder) {
         self.routeViewBuilder = routeViewBuilder
     }
     

@@ -1,13 +1,13 @@
 import Foundation
 
-extension ViewSpecification {
+extension MVVM.ViewSpecification {
     var modelVariablesString: String {
         let variables = models.map { "\($0.variableName) = \($0.modelType)" }
         return variables.joined(separator: " and ")
     }
 }
 
-extension ViewSpecification {
+extension MVVM.ViewSpecification {
     var domainModelFilePaths: [String] {
         return models.map { $0.modelPath }
     }
@@ -21,7 +21,7 @@ extension ViewSpecification {
     }
     
     var exampleViewName: String {
-        containsCollection ? "SingleItemView" : "CollectionOfItemsView"
+        containsCollection ? "CollectionOfItemsView" : "SingleItemView"
     }
 }
 
@@ -32,7 +32,7 @@ extension NewViewBuilder: PromptConfig {
     }
 }
 
-extension ViewSpecification {
+extension MVVM.ViewSpecification {
     var containsCollection: Bool {
         models.contains(where: { $0.isCollection })
     }
@@ -40,7 +40,7 @@ extension ViewSpecification {
 
 struct NewViewBuilder: PromptCreator {
     
-    let newView: ViewSpecification
+    let newView: MVVM.ViewSpecification
     
     func prompt() -> String {
     """

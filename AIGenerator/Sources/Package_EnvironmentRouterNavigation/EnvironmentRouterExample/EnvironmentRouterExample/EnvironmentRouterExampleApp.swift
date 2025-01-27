@@ -5,8 +5,8 @@ struct EnvironmentRouterExampleApp: App {
     var body: some Scene {
         WindowGroup {
             RouterView(
-                router: Router(
-                    routeViewBuilder: SwiftUIRouteViewBuilder()
+                router: ExampleRouter(
+                    routeViewBuilder: ExampleSwiftUIRouteViewBuilder()
                 )
             ) {
                 HomeView()

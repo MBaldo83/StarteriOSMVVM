@@ -1,10 +1,10 @@
 import SwiftUI
 
 @MainActor
-class SwiftUIRouteViewBuilder {
+class ExampleSwiftUIRouteViewBuilder {
     
     @ViewBuilder
-    func view(for route: Router.Route) -> some View {
+    func view(for route: ExampleRouter.Route) -> some View {
         switch route {
         case .viewWithNoArguments:
             SingleItemView(

@@ -1,5 +1,12 @@
 import Foundation
 
+protocol PromptPipelineRunner {
+    func inference(
+        using promptCreator: PromptCreator,
+        with config: PromptConfig
+    )
+}
+
 protocol PromptInferencer {
     func inference(_ prompt: String)
 }

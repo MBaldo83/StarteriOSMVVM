@@ -1,16 +1,16 @@
 import Foundation
 
 extension MVVM.ViewSpecification {
-    static func savedDecksViewFeatureSpec() -> MVVM.ViewSpecification {
+    static func deckDetailViewSpecification() -> MVVM.ViewSpecification {
         .init(
-            viewName: "SavedDecksView",
+            viewName: "DeckDetailsView",
             viewFolderPath: "\(AiderControl.Constants.appModuleRoot)Views/",
             models: [
                 .init(
-                    variableName: "savedDecks",
+                    variableName: "deck",
                     modelType: "LocalDeck",
                     modelPath: "\(AiderControl.Constants.appModuleRoot)Domain/LocalDeck.swift",
-                    isCollection: true
+                    isCollection: false
                 )
             ]
         )

@@ -12,7 +12,10 @@ let package = Package(
         .executableTarget(
             name: "AIGenerator",
             dependencies: [],
-            exclude: ["Package_MVVMViewBuilder/MVVMExample/"]
+            exclude: [
+                "Package_MVVMViewBuilder/MVVMExample/",
+                "Package_EnvironmentRouterNavigation/EnvironmentRouterExample/"
+            ]
         ),
     ]
 )

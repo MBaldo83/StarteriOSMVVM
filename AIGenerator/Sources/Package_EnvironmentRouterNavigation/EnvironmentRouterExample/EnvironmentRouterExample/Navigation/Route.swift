@@ -1,6 +1,6 @@
 import Foundation
 
-extension Router {
+extension ExampleRouter {
     enum Route: Hashable {
         case viewWithNoArguments
         case viewWithModel(item: SingleItem)

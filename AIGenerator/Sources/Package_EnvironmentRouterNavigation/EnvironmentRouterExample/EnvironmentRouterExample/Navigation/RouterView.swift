@@ -2,11 +2,11 @@ import SwiftUI
 
 struct RouterView<Content: View>: View {
     
-    @State var router: Router
+    @State var router: ExampleRouter
     // Our root view content
     private let content: Content
     
-    init(router: Router,
+    init(router: ExampleRouter,
          @ViewBuilder content: @escaping () -> Content) {
         self.content = content()
         self.router = router
@@ -15,7 +15,7 @@ struct RouterView<Content: View>: View {
     var body: some View {
         NavigationStack(path: $router.routePath) {
             content
-                .navigationDestination(for: Router.Route.self) { route in
+                .navigationDestination(for: ExampleRouter.Route.self) { route in
                     router.view(for: route)
                 }
         }

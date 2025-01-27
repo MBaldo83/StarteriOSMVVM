@@ -1,11 +1,14 @@
 import Foundation
 
 struct NewNavigationRoutePromptCreator: PromptCreator {
-    let newView: NavigationLink.ViewSpecification
+    let navigationLink: EnvironmentRouterNavigation.NavigationLink
+    var newView: EnvironmentRouterNavigation.NavigationLink.ViewSpecification { navigationLink.to }
     let chatHistoryId: String
+    private let exampleRouterClassName = "ExampleRouter"
+    
     func prompt() -> String {
         """
-        add a new Router.Route enum case called \(newView.routeName) \
+        Using case \(newView.exampleCaseName) on ExampleRouter.Route as an example, add a new case on Router.Route called \(newView.routeName) \
         that is initialised with variables: \(newView.modelVariablesString). \
         Keep the solution simple, don't add any new files. IMPORTANT: implement the solution without asking any questions
         """
@@ -13,11 +16,25 @@ struct NewNavigationRoutePromptCreator: PromptCreator {
 }
 
 extension NewNavigationRoutePromptCreator: PromptConfig {
-    var filesToAdd: [String] { newView.filesNeededToCreateNavigationRoute }
+    var filesToAdd: [String] {
+        navigationLink.filesNeededToCreateNavigationRoute +
+        newView.filesNeededToCreateNavigationRoute +
+        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Route.swift"]
+    }
     var chatHistoryID: String { chatHistoryId }
 }
 
-extension NavigationLink.ViewSpecification {
+extension EnvironmentRouterNavigation.NavigationLink {
+    var filesNeededToCreateNavigationRoute: [String] {
+        [routesPath]
+    }
+}
+
+extension EnvironmentRouterNavigation.NavigationLink.ViewSpecification {
+    
+    var exampleCaseName: String {
+        models.isEmpty ? "viewWithNoArguments" : "viewWithModel"
+    }
     
     var pathToViewOnceCreated: String {
         "\(viewFolderPath)\(viewName).swift"
@@ -31,12 +48,18 @@ extension NavigationLink.ViewSpecification {
     var filesNeededToCreateNavigationRoute: [String] {
         var models = models.map { $0.modelPath }
         models.append(pathToViewOnceCreated)
-        models.append("Swot_It/SwotItApp/Navigation/Router.swift")
         return models
     }
     
     var modelVariablesString: String {
         let variables = models.map { "\($0.variableName) = \($0.modelType)" }
         return variables.joined(separator: " and ")
+    }
+}
+
+extension EnvironmentRouterNavigation {
+    enum Constants {
+        static let exampleNavigationRoot = "Sources/Package_EnvironmentRouterNavigation/EnvironmentRouterExample/EnvironmentRouterExample/Navigation/"
+        static let exampleRouteClassName = "Route"
     }
 }
