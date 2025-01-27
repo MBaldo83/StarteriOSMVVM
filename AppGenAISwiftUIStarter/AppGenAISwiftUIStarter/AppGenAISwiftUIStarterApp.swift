@@ -6,13 +6,13 @@ struct AppGenAISwiftUIStarterApp: App {
         WindowGroup {
             RootTabView(
                 buildTabZero: {
-                    Text("Tab 0")
+                    NavigationStackViewFactory().make()
                 },
                 buildTabOne: {
-                    Text("Tab 1")
+                    SingleViewFactory().make()
                 },
                 buildTabTwo: {
-                    Text("Tab 2")
+                    RelaxTabViewFactory().make()
                 }
             )
         }
