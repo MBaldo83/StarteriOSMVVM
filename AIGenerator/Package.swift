@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "AIGenerator",
+    platforms: [.macOS(.v12)], // might be able to remove this when navigation example is excluded
     dependencies: [],
     targets: [
         .executableTarget(
@@ -12,7 +13,8 @@ let package = Package(
             dependencies: [],
             exclude: [
                 "Package_MVVMViewBuilder/MVVMExample/",
-                "Package_EnvironmentRouterNavigation/EnvironmentRouterExample/"
+                "Package_EnvironmentRouterNavigation/EnvironmentRouterExample/",
+                "Package_NetworkingAsyncEndpointDescriptor/NetworkingExample/"
             ]
         ),
     ]
