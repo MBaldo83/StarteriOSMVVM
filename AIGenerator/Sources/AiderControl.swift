@@ -1,12 +1,5 @@
 import Foundation
 
-protocol PromptPipelineRunner {
-    func inference(
-        using promptCreator: PromptCreator,
-        with config: PromptConfig
-    )
-}
-
 extension AiderControl {
     enum Constants {
         static let appModuleRoot = "AppGenAISwiftUIStarter/AppGenAISwiftUIStarter/"
@@ -16,16 +9,18 @@ extension AiderControl {
 
 struct AiderControl {
     
-    var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.aiderProductionPipeline()
+    //.dryRunPipeline()
+    //.aiderProductionPipeline()
+    var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.dryRunPipeline()
     
     /**
      Control your generation by editing the commands below.
      */
     func run() {
         
-        runSavedDecksViewBuilder()
-        
-        /** Generation History **/
+        runSavedDecksToDeckDetailNavigationBuilder()
+//        runDeckDetailViewBuilder()
+//        runSavedDecksViewBuilder()
 //        runDeckGeneratorViewBuilder()
         
     }
