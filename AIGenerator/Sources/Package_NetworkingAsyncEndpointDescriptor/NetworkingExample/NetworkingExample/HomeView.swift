@@ -29,8 +29,8 @@ struct HomeView: View {
 
 
 
-protocol MoviesAPIClient {
-    func getPopularMovies() async -> Result<[Movie], Error>
+protocol ExampleMoviesAPIClient {
+    func getPopularMovies() async -> Result<[ExampleMovie], Error>
 }
 
 extension HomeView {
@@ -38,11 +38,11 @@ extension HomeView {
     @Observable
     class ViewModel {
         
-        let moviesClient: MoviesAPIClient
+        let moviesClient: ExampleMoviesAPIClient
         var movieTitles = [String]()
         var error: String?
         
-        init(moviesClient: MoviesAPIClient) {
+        init(moviesClient: ExampleMoviesAPIClient) {
             self.moviesClient = moviesClient
         }
         
