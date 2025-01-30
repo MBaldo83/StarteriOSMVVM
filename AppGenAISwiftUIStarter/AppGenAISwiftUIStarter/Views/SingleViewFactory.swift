@@ -5,7 +5,7 @@ class SingleViewFactory {
     @MainActor
     @ViewBuilder
     func make() -> some View {
-        Text("Tab 1")
+        Text("Single View")
             .tabItem {
                 Image(systemName: "mappin.circle")
                 Text("Single")
