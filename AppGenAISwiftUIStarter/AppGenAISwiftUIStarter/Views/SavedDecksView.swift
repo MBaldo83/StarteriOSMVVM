@@ -3,6 +3,7 @@ import SwiftUI
 struct SavedDecksView: View {
     
     @State var viewModel: ViewModel
+    @Environment(Router.self) private var router: Router
     
     var body: some View {
         SavedDecksContentView(
