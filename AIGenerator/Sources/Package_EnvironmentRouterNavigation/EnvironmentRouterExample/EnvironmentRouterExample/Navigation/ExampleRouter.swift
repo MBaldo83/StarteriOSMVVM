@@ -5,18 +5,18 @@ import SwiftUI
 @Observable
 public class ExampleRouter {
     
-    var routePath: [Route] = []
+    var routePath: [ExampleRoute] = []
     var routeViewBuilder: ExampleSwiftUIRouteViewBuilder
     
     init(routeViewBuilder: ExampleSwiftUIRouteViewBuilder) {
         self.routeViewBuilder = routeViewBuilder
     }
     
-    func view(for route: Route) -> some View {
+    func view(for route: ExampleRoute) -> some View {
         routeViewBuilder.view(for: route)
     }
     
-    func navigateTo(_ appRoute: Route) {
+    func navigateTo(_ appRoute: ExampleRoute) {
         routePath.append(appRoute)
     }
 }

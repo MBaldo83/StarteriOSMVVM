@@ -3,9 +3,9 @@ import Foundation
 @MainActor
 @Observable
 public class Router {
-    var routePath: [Route] = []
+    var routePath: [ExampleRoute] = []
     
-    func navigateTo(_ appRoute: Route) {
+    func navigateTo(_ appRoute: ExampleRoute) {
         routePath.append(appRoute)
     }
 }

@@ -8,7 +8,7 @@ struct NewNavigationRoutePromptCreator: PromptCreator {
     
     func prompt() -> String {
         """
-        Using case \(newView.exampleCaseName) on ExampleRouter.Route as an example, add a new case on Router.Route called \(newView.routeName) \
+        Using case \(newView.exampleCaseName) on ExampleRouter.ExampleRoute as an example, add a new case on Router.ExampleRoute called \(newView.routeName) \
         that is initialised with variables: \(newView.modelVariablesString). \
         Keep the solution simple, don't add any new files. IMPORTANT: implement the solution without asking any questions
         """
@@ -19,7 +19,7 @@ extension NewNavigationRoutePromptCreator: PromptConfig {
     var filesToAdd: [String] {
         navigationLink.filesNeededToCreateNavigationRoute +
         newView.filesNeededToCreateNavigationRoute +
-        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Route.swift"]
+        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)ExampleRoute.swift"]
     }
     var chatHistoryID: String { chatHistoryId }
 }
@@ -60,6 +60,6 @@ extension EnvironmentRouterNavigation.NavigationLink.ViewSpecification {
 extension EnvironmentRouterNavigation {
     enum Constants {
         static let exampleNavigationRoot = "\(AiderControl.Constants.aiGeneratorRoot)Sources/Package_EnvironmentRouterNavigation/EnvironmentRouterExample/EnvironmentRouterExample/Navigation/"
-        static let exampleRouteClassName = "Route"
+        static let exampleRouteClassName = "ExampleRoute"
     }
 }

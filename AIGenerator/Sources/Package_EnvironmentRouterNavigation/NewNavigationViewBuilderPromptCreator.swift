@@ -11,6 +11,7 @@ struct NewNavigationViewBuilderPromptCreator: PromptCreator {
         """
         Using \(exampleRouteViewBuilderClassName) as an example, In the class SwiftUIRouteViewBuilder, \ 
         return a new \(newView.viewName) initialised with variables: \(newView.modelVariablesString). \
+        Don't wrap \(newView.viewName) in AnyView \
         This is a first draft, keep the solution simple. IMPORTANT: implement the solution without asking any questions
         """
     }

@@ -19,7 +19,7 @@ struct HomeView: View {
                     router.navigateTo(.collectionModifiedNavChild)
                 }
             }
-            .navigationDestination(for: Router.Route.self) { route in
+            .navigationDestination(for: Router.ExampleRoute.self) { route in
                 router.view(for: route)
             }
             .navigationTitle("Home")
@@ -28,7 +28,7 @@ struct HomeView: View {
 }
 
 extension Router {
-    enum Route: Hashable {
+    enum ExampleRoute: Hashable {
         case singleItem
         case collectionOfItems
         case collectionModifiedNavChild
@@ -37,7 +37,7 @@ extension Router {
 
 extension Router {
     @ViewBuilder
-    func view(for route: Route) -> some View {
+    func view(for route: ExampleRoute) -> some View {
         switch route {
         case .singleItem:
             SingleItemView(
