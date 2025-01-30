@@ -13,7 +13,7 @@ struct NewNavigationViewBuilderPromptCreator: PromptCreator {
         using a switch over the provided route parameter add a new case \
         returning \(newView.viewName) initialised with variables: \(newView.modelVariablesString). \
         Don't wrap \(newView.viewName) in AnyView \
-        This is a first draft, keep the solution simple. IMPORTANT: implement the solution without asking any questions
+        IMPORTANT: implement the solution without asking any questions
         """
     }
 }
@@ -22,7 +22,7 @@ extension NewNavigationViewBuilderPromptCreator: PromptConfig {
     var filesToAdd: [String] {
         newView.filesNeededToCreateNavigationViewBuilder +
         navigationLink.filesNeededToCreateViewBuilder +
-        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)\(exampleRouteViewBuilderClassName).swift"]
+        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Navigation/\(exampleRouteViewBuilderClassName).swift"]
     }
     var chatHistoryID: String { chatHistoryId }
 }

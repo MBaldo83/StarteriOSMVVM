@@ -20,7 +20,7 @@ extension NewNavigationRoutePromptCreator: PromptConfig {
     var filesToAdd: [String] {
         navigationLink.filesNeededToCreateNavigationRoute +
         newView.filesNeededToCreateNavigationRoute +
-        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)ExampleRoute.swift"]
+        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Navigation/ExampleRoute.swift"]
     }
     var chatHistoryID: String { chatHistoryId }
 }
@@ -60,7 +60,7 @@ extension EnvironmentRouterNavigation.NavigationLink.ViewSpecification {
 
 extension EnvironmentRouterNavigation {
     enum Constants {
-        static let exampleNavigationRoot = "\(AiderControl.Constants.aiGeneratorRoot)Sources/Package_EnvironmentRouterNavigation/EnvironmentRouterExample/EnvironmentRouterExample/Navigation/"
+        static let exampleNavigationRoot = "\(AiderControl.Constants.aiGeneratorRoot)Sources/Package_EnvironmentRouterNavigation/EnvironmentRouterExample/EnvironmentRouterExample/"
         static let exampleRouteClassName = "ExampleRoute"
     }
 }
