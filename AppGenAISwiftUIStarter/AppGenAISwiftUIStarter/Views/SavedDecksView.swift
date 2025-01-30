@@ -8,7 +8,10 @@ struct SavedDecksView: View {
     var body: some View {
         SavedDecksContentView(
             decks: viewModel.decks,
-            viewActionOne: viewModel.viewActionOne
+            viewActionOne: viewModel.viewActionOne,
+            navigateToDeckDetails: { deck in
+                router.navigateTo(.deckDetails(deck: deck))
+            }
         )
     }
 }
@@ -16,6 +19,7 @@ struct SavedDecksView: View {
 struct SavedDecksContentView: View {
     let decks: [LocalDeck]
     let viewActionOne: () -> Void
+    let navigateToDeckDetails: (LocalDeck) -> Void
 
     var body: some View {
         VStack {
@@ -23,7 +27,11 @@ struct SavedDecksContentView: View {
                 Text("View Action 1")
             }
             ForEach(decks) { deck in
-                Text(deck.name)
+                Button(action: {
+                    navigateToDeckDetails(deck)
+                }) {
+                    Text(deck.name)
+                }
             }
         }
     }
