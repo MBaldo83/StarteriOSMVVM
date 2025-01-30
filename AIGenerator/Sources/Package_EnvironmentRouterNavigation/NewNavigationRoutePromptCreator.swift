@@ -59,7 +59,7 @@ extension EnvironmentRouterNavigation.NavigationLink.ViewSpecification {
 
 extension EnvironmentRouterNavigation {
     enum Constants {
-        static let exampleNavigationRoot = "Sources/Package_EnvironmentRouterNavigation/EnvironmentRouterExample/EnvironmentRouterExample/Navigation/"
+        static let exampleNavigationRoot = "\(AiderControl.Constants.aiGeneratorRoot)Sources/Package_EnvironmentRouterNavigation/EnvironmentRouterExample/EnvironmentRouterExample/Navigation/"
         static let exampleRouteClassName = "Route"
     }
 }
