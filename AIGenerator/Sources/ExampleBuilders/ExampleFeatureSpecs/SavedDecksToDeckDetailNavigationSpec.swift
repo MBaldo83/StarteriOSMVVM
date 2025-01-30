@@ -5,7 +5,7 @@ extension EnvironmentRouterNavigation.NavigationLink {
         .init(
             from: .init(mvvmView: .savedDecksViewFeatureSpec()),
             to: .init(mvvmView: .deckDetailViewSpecification()),
-            triggerDescriptionWhen: "selected from list",
+            triggerDescriptionWhen: "a deck is selected from the list of decks",
             dataMappings: [.init(use: "savedDecks items in collection", toCreate: "deck")],
             routesPath: "\(AiderControl.Constants.appModuleRoot)Navigation/Router.swift",
             viewBuilderPath: "\(AiderControl.Constants.appModuleRoot)Navigation/SwiftUIRouteViewBuilder.swift"
