@@ -7,8 +7,13 @@ enum EnvironmentRouterNavigation {
         let to: ViewSpecification
         let triggerDescriptionWhen: String
         let dataMappings: [DataMapping]
-        let routesPath: String
-        let viewBuilderPath: String
+        let routes: EntityInfo
+        let viewBuilder: EntityInfo
+        
+        struct EntityInfo {
+            let filePath: String
+            let name: String
+        }
         
         struct DataMapping {
             let use: String

@@ -7,8 +7,8 @@ extension EnvironmentRouterNavigation.NavigationLink {
             to: .init(mvvmView: .deckDetailViewSpecification()),
             triggerDescriptionWhen: "a deck is selected from the list of decks",
             dataMappings: [.init(use: "savedDecks items in collection", toCreate: "deck")],
-            routesPath: "\(AiderControl.Constants.appModuleRoot)Navigation/Router.swift",
-            viewBuilderPath: "\(AiderControl.Constants.appModuleRoot)Navigation/SwiftUIRouteViewBuilder.swift"
+            routes: .init(filePath: "\(AiderControl.Constants.appModuleRoot)Navigation/Route.swift", name: "Router.Routes"),
+            viewBuilder: .init(filePath: "\(AiderControl.Constants.appModuleRoot)Navigation/SwiftUIRouteViewBuilder.swift", name: "SwiftUIRouteViewBuilder")
         )
     }
 }

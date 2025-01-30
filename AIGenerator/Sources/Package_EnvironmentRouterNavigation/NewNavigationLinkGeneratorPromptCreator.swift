@@ -18,7 +18,7 @@ extension NewNavigationLinkGeneratorPromptCreator: PromptConfig {
     var filesToAdd: [String] {
         link.from.filesNeededNavigate +
         link.to.filesNeededNavigate +
-        [link.routesPath]
+        [link.routes.filePath]
     }
     var chatHistoryID: String { chatHistoryId }
 }

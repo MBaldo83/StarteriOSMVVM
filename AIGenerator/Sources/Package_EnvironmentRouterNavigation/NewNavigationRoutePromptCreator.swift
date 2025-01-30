@@ -8,7 +8,8 @@ struct NewNavigationRoutePromptCreator: PromptCreator {
     
     func prompt() -> String {
         """
-        Using case \(newView.exampleCaseName) on ExampleRouter.ExampleRoute as an example, add a new case on Router.ExampleRoute called \(newView.routeName) \
+        Using case \(newView.exampleCaseName) on ExampleRouter.ExampleRoute as an example, \ 
+        add a new case on \(navigationLink.routes.name) called \(newView.routeName) \
         that is initialised with variables: \(newView.modelVariablesString). \
         Keep the solution simple, don't add any new files. IMPORTANT: implement the solution without asking any questions
         """
@@ -26,7 +27,7 @@ extension NewNavigationRoutePromptCreator: PromptConfig {
 
 extension EnvironmentRouterNavigation.NavigationLink {
     var filesNeededToCreateNavigationRoute: [String] {
-        [routesPath]
+        [routes.filePath]
     }
 }
 
