@@ -3,12 +3,24 @@ import Foundation
 extension EnvironmentRouterNavigation.NavigationLink {
     static func savedDecksToDeckDetailNavigationSpec() -> EnvironmentRouterNavigation.NavigationLink {
         .init(
-            from: .init(mvvmView: .savedDecksViewFeatureSpec()),
+            from: .init(
+                // mapping from mvvm views to router navigation spec.
+                // These 2 packages are de-coupled to allow flexibilty to choose other architectures
+                mvvmView: .savedDecksViewFeatureSpec()
+            ),
             to: .init(mvvmView: .deckDetailViewSpecification()),
             triggerDescriptionWhen: "a deck is selected from the list of decks",
-            dataMappings: [.init(use: "savedDecks items in collection", toCreate: "deck")],
-            routes: .init(filePath: "\(AiderControl.Constants.appModuleRoot)Navigation/Route.swift", name: "Router.Routes"),
-            viewBuilder: .init(filePath: "\(AiderControl.Constants.appModuleRoot)Navigation/SwiftUIRouteViewBuilder.swift", name: "SwiftUIRouteViewBuilder")
+            dataMappings: [
+                .init(use: "savedDecks items in collection", toCreate: "deck")
+            ],
+            routes: .init(
+                filePath: "\(AiderControl.Constants.appModuleRoot)Navigation/Route.swift",
+                name: "Router.Routes"
+            ),
+            viewBuilder: .init(
+                filePath: "\(AiderControl.Constants.appModuleRoot)Navigation/SwiftUIRouteViewBuilder.swift",
+                name: "SwiftUIRouteViewBuilder"
+            )
         )
     }
 }

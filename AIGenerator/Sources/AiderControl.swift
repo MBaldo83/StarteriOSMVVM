@@ -18,7 +18,12 @@ struct AiderControl {
      */
     func run() {
         
-        runSavedDecksToDeckDetailNavigationBuilder()
+        runSavedDecksViewBuilder()
+        
+        /**
+         Below is a list of previous commands for reference
+         */
+//        runSavedDecksToDeckDetailNavigationBuilder()
 //        runDeckDetailViewBuilder()
 //        runSavedDecksViewBuilder()
 //        runDeckGeneratorViewBuilder()
