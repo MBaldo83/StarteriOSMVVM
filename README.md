@@ -30,6 +30,8 @@ var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.dry
 
 ## Gen AI App Builder Components:
 
+### The Prompt Pipeline
+
 You execute the code building prompts by calling the inference method on the `promptPipelineRunner`:
 
 ```swift
@@ -52,3 +54,61 @@ func runDeckGeneratorViewBuilder() {
         )
     }
 ```
+To run a prompt, the pipeline runner requires an implementation of `PromptCreator` and an implementation of `PromptConfig`. 
+
+PromptCreator exposes a method to return a prompt:
+
+```swift
+protocol PromptCreator {
+    func prompt() -> String
+}
+```
+
+PromptConfig returns variables use to set up the AI environment
+
+```swift
+protocol PromptConfig {
+    var filesToAdd: [String] { get }
+    var model: String { get }
+    var readOnly: String { get }
+    var chatHistoryID: String { get }
+}
+```
+
+### Builder Packages
+
+Within each 'Builder' Package are concrete implementations of PromptCreator and PromptConfig. Often these 2 protocols are implemented by the same struct. For example, [NewViewBuilder](./AIGenerator/Sources/Package_MVVMViewBuilder/NewViewBuilder.swift) implements both protocols. Theses 'Builders' should be considered the encoding of the engineering design for the pattern being implemented. For these Builders to implement the protocols, and actually write the prompts, they depend on a specification of the product requirements.
+
+### Feature Specifications
+
+Feature specifications describe the feature you are building. The attributes of a feature are 'shaped' to provide the information required by the Builders.
+
+For example see [DeckGeneratorViewFeatureSpec](./AIGenerator/Sources/ExampleBuilders/ExampleFeatureSpecs/DeckGeneratorViewFeatureSpec.swift)
+
+```swift
+extension MVVM.ViewSpecification {
+    static func deckGeneratorViewFeatureSpec() -> MVVM.ViewSpecification {
+        .init(
+            viewName: "DeckGeneratorView",
+            viewFolderPath: "\(AiderControl.Constants.appModuleRoot)Views/",
+            models: [
+                .init(
+                    variableName: "generatedQuestions",
+                    modelType: "Question",
+                    modelPath: "\(AiderControl.Constants.appModuleRoot)Domain/Question.swift",
+                    isCollection: true
+                )
+            ]
+        )
+    }
+}
+```
+
+### Putting it all together:
+
+1. build a run the script
+2. in `AiderControl -> run()` add the script you want to run, and configure global settings like dryRunPipeline / aiderProductionPipeline
+3. Write a feature spec eg. [DeckGeneratorViewFeatureSpec](./AIGenerator/Sources/ExampleBuilders/ExampleFeatureSpecs/DeckGeneratorViewFeatureSpec.swift)
+4. Provide this to something that implements `PromptCreator` and `PromptConfig` eg. [NewViewBuilder](./AIGenerator/Sources/Package_MVVMViewBuilder/NewViewBuilder.swift)
+5. Pass these implementations to promptPipelineRunner to execute
+6. Watch the terminal to see the output (be patient, when it looks like it's doing nothing it might be thinking!)
