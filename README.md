@@ -4,6 +4,22 @@ Within this repository, is the [AIGenerator project](./AIGenerator/Package.swift
 
 Note: This is an early stage project in the experimentation phase, there are still quite a few rough edges!
 
+## System requirements
+
+1. Swift Toolchain (Swift 6.0+)
+2. Aider Chat CLI
+  * The project depends on Aider Chat for generating code through language model prompts.
+3. Bash Shell Environment
+  * The included build script is written in Bash.
+  * You’ll need a Unix-like shell (such as Bash on macOS or Linux, or WSL on Windows) to execute the script:
+4. Operating System and Developer Tools
+  * macOS Users: Ensure that you have installed Xcode or the Xcode Command Line Tools. This is required not only for building the Swift code but also if you plan to run the companion iOS demo app.
+  * Linux Users: Confirm that you have the appropriate build tools and the Swift compiler set up on your system.
+  * Windows Users: Although Swift is primarily developed for macOS and Linux, if you’re on Windows, using the Windows Subsystem for Linux (WSL) can serve as a viable alternative.
+5. Network Connectivity
+  * Since the project interacts with a language model via Aider Chat, you’ll likely need a working internet connection.
+  * Ensure that any required API access for the LLM is not blocked by network restrictions.
+
 ## Installation
 
 Install Aider Chat following instructions [here](https://aider.chat/docs/install.html).
