@@ -1,6 +1,6 @@
 # Demo project to present Gen AI App Builder
 
-Within this repository, is the [AIGenerator project](./AIGenerator/Package.swift) and an example [iOS app](./AppGenAISwiftUIStarter/) showing source code written using the AIGenerator.
+Within this repository is the [AIGenerator project](./AIGenerator/Package.swift), a project that uses an AI code editor (currently Aider.chat) to generate code from scripts, and an example [iOS app](./AppGenAISwiftUIStarter/) showing source code written using the AIGenerator.
 
 Note: This is an early stage project in the experimentation phase, there are still quite a few rough edges!
 
@@ -30,13 +30,13 @@ Ensure that aider is ready to run in your terminal at the root of the project.
 
 1. To run the prompts to generate code in your project you will edit the `run()` function of `AiderControl.swift`
 
-Within the `run()` function of `AiderControl.swift` you edit the scripts you want to run each time. I have provided some 'builders' to demonstrate the idea. For example [runDeckGeneratorViewBuilder](./AIGenerator/Sources/ExampleBuilders/AiderControl+NewViewBuilder.swift).
-
-It is recommended that you choose the 'dryRun' case in [AiderControl -> var promptPipelineRunner](./AIGenerator/Sources/AiderControl.swift) when first running the project to print without executing the prompt you will be passing to the LLM:
+In [AiderControl.swift](./AIGenerator/Sources/AiderControl.swift), you'll find the `run()` function where different builder scripts are invoked. Start by choosing the dryRun configuration to see the prompt printed out without executing it.
 
 ```swift
 var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.dryRunPipeline()
 ```
+
+Within the `run()` function of `AiderControl.swift` you edit the scripts you want to run each time. I have provided some 'builders' to demonstrate the idea. For example [runDeckGeneratorViewBuilder](./AIGenerator/Sources/ExampleBuilders/AiderControl+NewViewBuilder.swift) provides an extension to AiderControl with a method to create a 'Deck Generator View' - `runDeckGeneratorViewBuilder()`
 
 2. To run the Generation script from the root of the project run:
 
@@ -44,7 +44,9 @@ var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.dry
 (aider-python-env) % sh ./build_and_run_AI.sh
 ```
 
-## Gen AI App Builder Components:
+Please Note: The build script compiles the AIGenerator package in release mode and then executes it. For debugging or development, you may want to adjust the script accordingly.
+
+## Gen AI App Builder Components
 
 ### The Prompt Pipeline
 
@@ -122,9 +124,9 @@ extension MVVM.ViewSpecification {
 
 ### Putting it all together:
 
-1. build a run the script
-2. in `AiderControl -> run()` add the script you want to run, and configure global settings like dryRunPipeline / aiderProductionPipeline
-3. Write a feature spec eg. [DeckGeneratorViewFeatureSpec](./AIGenerator/Sources/ExampleBuilders/ExampleFeatureSpecs/DeckGeneratorViewFeatureSpec.swift)
-4. Provide this to something that implements `PromptCreator` and `PromptConfig` eg. [NewViewBuilder](./AIGenerator/Sources/Package_MVVMViewBuilder/NewViewBuilder.swift)
-5. Pass these implementations to promptPipelineRunner to execute
+1. Write a feature spec eg. [DeckGeneratorViewFeatureSpec](./AIGenerator/Sources/ExampleBuilders/ExampleFeatureSpecs/DeckGeneratorViewFeatureSpec.swift)
+2. Provide this to something that implements `PromptCreator` and `PromptConfig` eg. [NewViewBuilder](./AIGenerator/Sources/Package_MVVMViewBuilder/NewViewBuilder.swift)
+3. Pass these implementations to promptPipelineRunner to execute
+4. In entry point - `AiderControl -> run()`, add the script you want to run, and configure global settings like dryRunPipeline / aiderProductionPipeline
+5. build and run the script: `sh ./build_and_run_AI.sh`
 6. Watch the terminal to see the output (be patient, when it looks like it's doing nothing it might be thinking!)
