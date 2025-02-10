@@ -15,4 +15,19 @@ extension MVVM.ViewSpecification {
             ]
         )
     }
+    
+    static func cafeProductsDetailsViewSpec() -> MVVM.ViewSpecification {
+        .init(
+            viewName: "CafeProductDetailView",
+            viewFolderPath: "\(AiderControl.Constants.appModuleRoot)Views/",
+            models: [
+                .init(
+                    variableName: "product",
+                    modelType: "CafeProduct",
+                    modelPath: "\(AiderControl.Constants.appModuleRoot)Domain/CafeProduct.swift",
+                    isCollection: false
+                )
+            ]
+        )
+    }
 }

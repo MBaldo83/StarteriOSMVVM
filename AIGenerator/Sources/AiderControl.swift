@@ -11,18 +11,20 @@ struct AiderControl {
     
     //.dryRunPipeline()
     //.aiderProductionPipeline()
-    var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.dryRunPipeline()
+    var promptPipelineRunner: PromptPipelineRunner = PromptPipelineRunnerFactory.aiderProductionPipeline()
     
     /**
      Control your generation by editing the commands below.
      */
     func run() {
         
-        runSavedDecksViewBuilder()
+        runCafeProductsToDetailsNavigationBuilder()
         
         /**
          Below is a list of previous commands for reference
          */
+        
+//        runSavedDecksViewBuilder()
 //        runSavedDecksToDeckDetailNavigationBuilder()
 //        runDeckDetailViewBuilder()
 //        runSavedDecksViewBuilder()
