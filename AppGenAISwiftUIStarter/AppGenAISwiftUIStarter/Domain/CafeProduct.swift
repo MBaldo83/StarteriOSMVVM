@@ -1,11 +1,11 @@
 import Foundation
 
-struct CafeProduct {
+struct CafeProduct: Hashable {
     let type: FoodType
     let name: String
     let description: String
     
-    enum FoodType {
+    enum FoodType: Hashable {
         case drink
         case snack
     }
