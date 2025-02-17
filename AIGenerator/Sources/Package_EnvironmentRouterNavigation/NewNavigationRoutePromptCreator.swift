@@ -17,10 +17,12 @@ struct NewNavigationRoutePromptCreator: PromptCreator {
 }
 
 extension NewNavigationRoutePromptCreator: PromptConfig {
-    var filesToAdd: [String] {
-        navigationLink.filesNeededToCreateNavigationRoute +
-        newView.filesNeededToCreateNavigationRoute +
-        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Navigation/ExampleRoute.swift"]
+    var filesToAdd: Set<String>  {
+        Set(
+            navigationLink.filesNeededToCreateNavigationRoute +
+            newView.filesNeededToCreateNavigationRoute +
+            ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Navigation/ExampleRoute.swift"]
+        )
     }
     var chatHistoryID: String { chatHistoryId }
 }

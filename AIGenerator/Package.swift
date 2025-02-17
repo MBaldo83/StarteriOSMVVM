@@ -12,7 +12,8 @@ let package = Package(
             dependencies: [],
             exclude: [
                 "Package_MVVMViewBuilder/MVVMExample/",
-                "Package_EnvironmentRouterNavigation/EnvironmentRouterExample/"
+                "Package_EnvironmentRouterNavigation/EnvironmentRouterExample/",
+                "Package_NetworkingAsyncEndpointDescriptor/NetworkingExample/"
             ]
         ),
     ]

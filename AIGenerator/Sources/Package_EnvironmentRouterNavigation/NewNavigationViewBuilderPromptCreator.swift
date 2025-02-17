@@ -19,10 +19,12 @@ struct NewNavigationViewBuilderPromptCreator: PromptCreator {
 }
 
 extension NewNavigationViewBuilderPromptCreator: PromptConfig {
-    var filesToAdd: [String] {
-        newView.filesNeededToCreateNavigationViewBuilder +
-        navigationLink.filesNeededToCreateViewBuilder +
-        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Navigation/\(exampleRouteViewBuilderClassName).swift"]
+    var filesToAdd: Set<String>  {
+        Set(
+            newView.filesNeededToCreateNavigationViewBuilder +
+            navigationLink.filesNeededToCreateViewBuilder +
+            ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)Navigation/\(exampleRouteViewBuilderClassName).swift"]
+        )
     }
     var chatHistoryID: String { chatHistoryId }
 }

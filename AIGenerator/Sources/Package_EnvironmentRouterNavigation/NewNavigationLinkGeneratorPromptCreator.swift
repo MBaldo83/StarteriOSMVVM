@@ -17,11 +17,13 @@ struct NewNavigationLinkGeneratorPromptCreator: PromptCreator {
 }
 
 extension NewNavigationLinkGeneratorPromptCreator: PromptConfig {
-    var filesToAdd: [String] {
-        link.from.filesNeededNavigate +
-        link.to.filesNeededNavigate +
-        [link.routes.filePath] +
-        ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)HomeView.swift"]
+    var filesToAdd: Set<String>  {
+        Set(
+            link.from.filesNeededNavigate +
+            link.to.filesNeededNavigate +
+            [link.routes.filePath] +
+            ["\(EnvironmentRouterNavigation.Constants.exampleNavigationRoot)HomeView.swift"]
+        )
     }
     var chatHistoryID: String { chatHistoryId }
 }

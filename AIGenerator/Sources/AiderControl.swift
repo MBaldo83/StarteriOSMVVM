@@ -18,11 +18,12 @@ struct AiderControl {
      */
     func run() {
         
-        runSavedDecksViewBuilder()
-        
         /**
          Below is a list of previous commands for reference
          */
+//        makeCafeEndpoints()
+//        runCafeProductsToDetailsNavigationBuilder()
+//        runSavedDecksViewBuilder()
 //        runSavedDecksToDeckDetailNavigationBuilder()
 //        runDeckDetailViewBuilder()
 //        runSavedDecksViewBuilder()

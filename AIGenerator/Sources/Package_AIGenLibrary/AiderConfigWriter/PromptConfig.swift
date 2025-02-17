@@ -13,7 +13,7 @@ struct DefaultAiderConfig {
 }
 
 protocol PromptConfig {
-    var filesToAdd: [String] { get }
+    var filesToAdd: Set<String> { get }
     var model: String { get }
     var readOnly: String { get }
     var chatHistoryID: String { get }

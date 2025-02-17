@@ -13,7 +13,7 @@ extension MVVM.ViewSpecification {
     }
     
     var exampleViewPath: String {
-        "\(AiderControl.Constants.aiGeneratorRoot)\(MVVMViewBuilder.Constants.exampleViewsRoot)\(exampleViewFileName)"
+        "\(MVVMViewBuilder.Constants.exampleViewsRoot)\(exampleViewFileName)"
     }
     
     var exampleViewFileName: String {
@@ -26,9 +26,11 @@ extension MVVM.ViewSpecification {
 }
 
 extension NewViewBuilder: PromptConfig {
-    var filesToAdd: [String] {
-        newView.domainModelFilePaths +
-        [newView.exampleViewPath]
+    var filesToAdd: Set<String>  {
+        Set(
+            newView.domainModelFilePaths +
+            [newView.exampleViewPath]
+        )
     }
 }
 
@@ -54,6 +56,6 @@ struct NewViewBuilder: PromptCreator {
 
 struct MVVMViewBuilder {
     enum Constants {
-        static let exampleViewsRoot = "Sources/Package_MVVMViewBuilder/MVVMExample/MVVMExample/Views/"
+        static let exampleViewsRoot = "\(AiderControl.Constants.aiGeneratorRoot)Sources/Package_MVVMViewBuilder/MVVMExample/MVVMExample/Views/"
     }
 }
