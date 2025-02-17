@@ -52,6 +52,9 @@ class SwiftUIRouteViewBuilder {
                     ]
                 )
             )
+            
+        case .deckGenerator:
+            DeckGeneratorView(viewModel: .init(questions: []))
         }
     }
 }

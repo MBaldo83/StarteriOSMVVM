@@ -14,7 +14,8 @@ class CafeRootTabViewFactory {
         RouterView(
             router: Router(
                 routeViewBuilder: viewBuilder
-            )
+            ),
+            modalRouter: ModalRouter()
         ) {
             self.viewBuilder.view(for: .cafeProductsList)
         }

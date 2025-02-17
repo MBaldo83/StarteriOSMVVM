@@ -20,3 +20,20 @@ public class Router {
         routePath.append(appRoute)
     }
 }
+
+@MainActor
+@Observable
+public class ModalRouter {
+    var currentSheet: Router.Route?
+    var isPresented = false
+    
+    func present(_ route: Router.Route) {
+        currentSheet = route
+        isPresented = true
+    }
+    
+    func dismiss() {
+        isPresented = false
+        currentSheet = nil
+    }
+}

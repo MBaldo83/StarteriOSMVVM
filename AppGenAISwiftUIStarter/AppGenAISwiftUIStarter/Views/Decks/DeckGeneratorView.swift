@@ -7,24 +7,46 @@ struct DeckGeneratorView: View {
     var body: some View {
         DeckGeneratorContentView(
             questions: viewModel.questions,
-            viewActionOne: viewModel.viewActionOne
+            generateDeck: viewModel.generateDeck,
+            saveDeck: viewModel.saveDeck
         )
     }
 }
 
 struct DeckGeneratorContentView: View {
     let questions: [Question]
-    let viewActionOne: () -> Void
+    let generateDeck: () -> Void
+    let saveDeck: () -> Void
 
     var body: some View {
-        VStack {
-            Button(action: viewActionOne) {
-                Text("View Action 1")
-            }
-            ForEach(questions) { question in
-                Text(question.question)
+        ScrollView {
+            VStack {
+                HStack {
+                    Button(action: generateDeck) {
+                        Text("Generate")
+                    }
+                    Button(action: saveDeck) {
+                        Text("Save")
+                    }
+                    Spacer()
+                }
+                
+                ForEach(questions) { question in
+                    VStack {
+                        HStack {
+                            Text(question.question)
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text(question.answer)
+                        }
+                    }
+                }
+                Spacer()
             }
         }
+        .padding()
     }
 }
 
@@ -38,11 +60,18 @@ extension DeckGeneratorView {
             self.questions = questions
         }
         
-        func viewActionOne() {
-            // Placeholder for view action. Update as needed
-            if let firstQuestion = questions.first {
-                questions[0] = Question(id: UUID(), question: firstQuestion.question + "!", answer: firstQuestion.answer)
-            }
+        func saveDeck() {
+            
+        }
+        
+        func generateDeck() {
+            questions = [
+                Question(id: UUID(), question: "What is the capital of France?", answer: "Paris"),
+                Question(id: UUID(), question: "Who wrote Romeo and Juliet?", answer: "William Shakespeare"),
+                Question(id: UUID(), question: "What is the chemical symbol for gold?", answer: "Au"),
+                Question(id: UUID(), question: "What planet is known as the Red Planet?", answer: "Mars"),
+                Question(id: UUID(), question: "What is the largest mammal in the world?", answer: "Blue Whale")
+            ]
         }
     }
 }

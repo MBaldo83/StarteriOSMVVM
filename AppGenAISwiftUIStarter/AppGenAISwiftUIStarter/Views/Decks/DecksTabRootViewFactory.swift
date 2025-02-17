@@ -14,7 +14,8 @@ class DecksTabRootViewFactory {
         RouterView(
             router: Router(
                 routeViewBuilder: viewBuilder
-            )
+            ),
+            modalRouter: ModalRouter()
         ) {
             self.viewBuilder.view(for: .savedDecks)
         }

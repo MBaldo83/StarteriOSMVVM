@@ -4,11 +4,14 @@ struct SavedDecksView: View {
     
     @State var viewModel: ViewModel
     @Environment(Router.self) private var router: Router
+    @Environment(ModalRouter.self) private var modalRouter: ModalRouter
     
     var body: some View {
         SavedDecksContentView(
             decks: viewModel.decks,
-            viewActionOne: viewModel.viewActionOne,
+            presentGenerator: {
+                modalRouter.present(.deckGenerator)
+            },
             navigateToDeckDetails: { deck in
                 router.navigateTo(.deckDetails(deck: deck))
             }
@@ -18,13 +21,13 @@ struct SavedDecksView: View {
 
 struct SavedDecksContentView: View {
     let decks: [LocalDeck]
-    let viewActionOne: () -> Void
+    let presentGenerator: () -> Void
     let navigateToDeckDetails: (LocalDeck) -> Void
 
     var body: some View {
         VStack {
-            Button(action: viewActionOne) {
-                Text("View Action 1")
+            Button(action: presentGenerator) {
+                Text("Generate")
             }
             ForEach(decks) { deck in
                 Button(action: {
