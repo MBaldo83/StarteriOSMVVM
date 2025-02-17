@@ -1,6 +1,6 @@
 # Demo project to present Gen AI App Builder
 
-Within this repository is the [AIGenerator project](./AIGenerator/Package.swift), a project that uses an AI code editor (currently Aider.chat) to generate code from scripts, and an example [iOS app](./AppGenAISwiftUIStarter/) showing source code written using the AIGenerator.
+Within this repository is the [AIGenerator project](./AIGenerator/Package.swift), a project that uses an AI code editor (currently Aider.chat) to generate code from scripts, and an example [iOS app](https://github.com/MBaldo83/StarteriOSMVVM/tree/sample-generated-project/AppGenAISwiftUIStarter) showing source code written using the AIGenerator.
 
 Note: This is an early stage project in the experimentation phase, there are still quite a few rough edges!
 
