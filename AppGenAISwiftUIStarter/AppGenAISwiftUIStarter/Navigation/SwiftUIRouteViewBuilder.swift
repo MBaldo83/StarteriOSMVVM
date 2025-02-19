@@ -31,30 +31,13 @@ class SwiftUIRouteViewBuilder {
             
         case .savedDecks:
             SavedDecksView(
-                viewModel: .init( // Could move this to the factory if necessary
-                    decks: [
-                        .init(
-                            id: UUID(),
-                            name: "deck 1",
-                            questions: [
-                                .init(id: UUID(), question: "question 1", answer: "answer 1"),
-                                .init(id: UUID(), question: "question 2", answer: "answer 2")
-                            ]
-                        ),
-                        .init(
-                            id: UUID(),
-                            name: "deck 2",
-                            questions: [
-                                .init(id: UUID(), question: "question 1", answer: "answer 1"),
-                                .init(id: UUID(), question: "question 2", answer: "answer 2")
-                            ]
-                        )
-                    ]
-                )
+                viewModel: .init()
             )
             
         case .deckGenerator:
-            DeckGeneratorView(viewModel: .init(questions: []))
+            DeckGeneratorView(
+                viewModel: .init()
+            )
         }
     }
 }

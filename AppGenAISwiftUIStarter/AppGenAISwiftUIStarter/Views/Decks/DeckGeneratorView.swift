@@ -8,7 +8,9 @@ struct DeckGeneratorView: View {
         DeckGeneratorContentView(
             questions: viewModel.questions,
             generateDeck: viewModel.generateDeck,
-            saveDeck: viewModel.saveDeck
+            saveDeck: viewModel.saveDeck,
+            name: $viewModel.name,
+            deckDescription: $viewModel.deckDescription
         )
     }
 }
@@ -17,10 +19,20 @@ struct DeckGeneratorContentView: View {
     let questions: [Question]
     let generateDeck: () -> Void
     let saveDeck: () -> Void
+    @Binding var name: String
+    @Binding var deckDescription: String
 
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 16) {
+                // Name and Description Fields
+                TextField("Deck Name", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                TextField("Deck Description", text: $deckDescription)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                // Buttons
                 HStack {
                     Button(action: generateDeck) {
                         Text("Generate")
@@ -31,6 +43,7 @@ struct DeckGeneratorContentView: View {
                     Spacer()
                 }
                 
+                // Questions List
                 ForEach(questions) { question in
                     VStack {
                         HStack {
@@ -45,8 +58,8 @@ struct DeckGeneratorContentView: View {
                 }
                 Spacer()
             }
+            .padding()
         }
-        .padding()
     }
 }
 
@@ -55,13 +68,23 @@ extension DeckGeneratorView {
     @Observable
     class ViewModel {
         var questions: [Question]
+        var name: String
+        var deckDescription: String
+        var dataManager: DataManager
         
-        init(questions: [Question]) {
-            self.questions = questions
+        init(dataManager: DataManager = DataManager.shared) {
+            self.questions = [Question]()
+            self.name = ""
+            self.deckDescription = ""
+            self.dataManager = dataManager
         }
         
         func saveDeck() {
-            
+            dataManager.saveNewDeck(
+                name: name,
+                description: deckDescription,
+                questions: questions
+            )
         }
         
         func generateDeck() {
