@@ -15,7 +15,7 @@ class SwiftUIRouteViewBuilder {
         switch route {
             
         case .deckDetails(let deck):
-            DeckDetailsView(viewModel: .init(deck: deck))
+            DeckDetailsView(deck: deck)
             
         case .cafeProductDetail(let product):
             CafeProductDetailView(

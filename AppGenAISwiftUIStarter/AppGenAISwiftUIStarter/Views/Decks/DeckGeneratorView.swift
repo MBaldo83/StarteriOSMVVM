@@ -26,7 +26,7 @@ struct DeckGeneratorView: View {
                     questions: self.questions.map{
                         Question.new(
                             question: $0.question,
-                            answer: $0.question,
+                            answer: $0.answer,
                             context: context
                         )
                     },
