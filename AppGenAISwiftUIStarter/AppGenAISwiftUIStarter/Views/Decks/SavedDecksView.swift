@@ -1,14 +1,15 @@
 import SwiftUI
 
 struct SavedDecksView: View {
-    
-    @State var viewModel: ViewModel
     @Environment(Router.self) private var router: Router
     @Environment(ModalRouter.self) private var modalRouter: ModalRouter
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.name)
+    ]) var decks: FetchedResults<Deck>
     
     var body: some View {
         SavedDecksContentView(
-            decks: viewModel.decks,
+            decks: decks,
             presentGenerator: {
                 modalRouter.present(.deckGenerator)
             },
@@ -20,9 +21,9 @@ struct SavedDecksView: View {
 }
 
 struct SavedDecksContentView: View {
-    let decks: [LocalDeck]
+    let decks: FetchedResults<Deck>
     let presentGenerator: () -> Void
-    let navigateToDeckDetails: (LocalDeck) -> Void
+    let navigateToDeckDetails: (Deck) -> Void
 
     var body: some View {
         VStack {
@@ -33,26 +34,8 @@ struct SavedDecksContentView: View {
                 Button(action: {
                     navigateToDeckDetails(deck)
                 }) {
-                    Text(deck.name)
+                    Text(deck.name ?? "")
                 }
-            }
-        }
-    }
-}
-
-extension SavedDecksView {
-    @Observable
-    class ViewModel {
-        var decks: [LocalDeck]
-        
-        init(decks: [LocalDeck]) {
-            self.decks = decks
-        }
-        
-        func viewActionOne() {
-            // Placeholder for view action.
-            if let firstDeck = decks.first {
-                decks[0] = LocalDeck(id: firstDeck.id, name: firstDeck.name + "!", questions: []) // Question is not defined, so I'm using an empty array here.
             }
         }
     }

@@ -15,7 +15,7 @@ struct DeckDetailsView: View {
 // This can be used in Previews
 struct DeckDetailsContentView: View {
     
-    let deck: LocalDeck
+    let deck: Deck
     let viewActionOne: () -> Void
     
     var body: some View {
@@ -24,8 +24,8 @@ struct DeckDetailsContentView: View {
                 "View Action 1",
                 action: viewActionOne
             )
-            Text("Name: \(deck.name)")
-            Text("Question Count: \(deck.questions.count)")
+            Text("Name: \(deck.name ?? "")")
+//            Text("Question Count: \(deck.questions.count)")
         }
     }
 }
@@ -35,20 +35,20 @@ extension DeckDetailsView {
     @Observable
     class ViewModel {
         
-        var deck: LocalDeck
+        var deck: Deck
         
-        init(deck: LocalDeck) {
+        init(deck: Deck) {
             self.deck = deck
         }
         
         func viewActionOne() {
-            deck = .init(
-                id: deck.id,
-                name: deck.name,
-                questions: deck.questions + [
-                    Question(id: UUID(), question: "New Question", answer: "The Answer")
-                ]
-            )
+//            deck = .init(
+//                id: deck.id,
+//                name: deck.name,
+//                questions: deck.questions + [
+////                    Question(id: UUID(), question: "New Question", answer: "The Answer")
+//                ]
+//            )
         }
     }
 }

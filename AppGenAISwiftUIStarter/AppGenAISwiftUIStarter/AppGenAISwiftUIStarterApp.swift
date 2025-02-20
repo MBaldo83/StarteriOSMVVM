@@ -4,6 +4,8 @@ import SwiftUI
 struct AppGenAISwiftUIStarterApp: App {
     
     let factoryStore = AppDependenciesFactoryStore()
+    let persistenceController = PersistenceController.shared
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some Scene {
         WindowGroup {
@@ -22,6 +24,13 @@ struct AppGenAISwiftUIStarterApp: App {
                     RelaxTabViewFactory().make()
                 }
             )
+            .environment(
+                \.managedObjectContext,
+                 persistenceController.container.viewContext
+            )
+        }
+        .onChange(of: scenePhase) {
+            persistenceController.save()
         }
     }
 }
