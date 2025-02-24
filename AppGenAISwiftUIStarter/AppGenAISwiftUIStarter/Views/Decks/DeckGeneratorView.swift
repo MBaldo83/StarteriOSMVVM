@@ -45,23 +45,6 @@ struct QuestionViewState: Identifiable {
     let answer: String
 }
 
-extension DeckGeneratorView {
-    func generateDeck(
-        name: String,
-        description: String
-    ) -> Deck? {
-        
-        let questions = [
-            Question.new(question: "Who wrote Romeo and Juliet?", answer: "William Shakespeare", context: context),
-            Question.new(question: "What is the chemical symbol for gold?", answer: "Au", context: context),
-            Question.new(question: "What planet is known as the Red Planet?", answer: "Mars", context: context),
-            Question.new(question: "What is the largest mammal in the world?", answer: "Blue Whale", context: context)
-        ]
-        
-        return Deck.create(name: name, description: description, questions: questions, in: context)
-    }
-}
-
 struct DeckGeneratorContentView: View {
     
     let questions: [QuestionViewState]
@@ -106,40 +89,5 @@ struct DeckGeneratorContentView: View {
             }
         }
         .padding()
-    }
-}
-
-extension Deck {
-    static func create(
-        name: String,
-        description: String,
-        questions: [Question],
-        in context: NSManagedObjectContext
-    ) -> Deck? {
-        let deck = Deck(context: context)
-        deck.name = name
-        deck.deckDescription = description
-        deck.questions = NSSet(array: questions)
-        
-        do {
-            try context.save()
-            return deck
-        } catch {
-            print("Failed to save new deck: \(error)")
-            return nil
-        }
-    }
-}
-
-extension Question {
-    static func new(
-        question: String,
-        answer: String,
-        context: NSManagedObjectContext
-    ) -> Question {
-        let newQuestion = Question(context: context)
-        newQuestion.question = question
-        newQuestion.answer = answer
-        return newQuestion
     }
 }

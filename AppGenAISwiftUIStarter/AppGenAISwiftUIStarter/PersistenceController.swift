@@ -12,11 +12,11 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
 
-        // Create 10 example programming languages.
-        for _ in 0..<10 {
+        // Create 10 example Decks
+        for i in 0..<10 {
             let deck = Deck(context: controller.container.viewContext)
-            deck.name = "Example Language 1"
-            deck.deckDescription = "A. Programmer"
+            deck.name = "Example Deck \(i)"
+            deck.deckDescription = "A. Deck"
         }
 
         return controller

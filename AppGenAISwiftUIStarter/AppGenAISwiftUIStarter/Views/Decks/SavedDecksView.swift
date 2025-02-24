@@ -74,16 +74,3 @@ struct SavedDecksContentView: View {
         }
     }
 }
-
-extension Deck {
-    func delete(
-        in context: NSManagedObjectContext
-    ) {
-        context.delete(self)
-        do {
-            try context.save()
-        } catch {
-            print("Failed to delete person: \(error)")
-        }
-    }
-}

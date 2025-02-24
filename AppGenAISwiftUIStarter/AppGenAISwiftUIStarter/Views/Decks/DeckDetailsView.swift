@@ -26,17 +26,11 @@ struct DeckDetailsContentView: View {
             // Deck Info Section
             VStack(alignment: .leading, spacing: 8) {
                 
-                TextField("Deck Name", text: Binding(
-                    get: { deck.name ?? "" },
-                    set: { deck.name = $0 }
-                ))
+                TextField("Deck Name", text: deck.nameBinding)
                 .font(.title)
                 .fontWeight(.bold)
                 
-                TextField("Deck Description", text: Binding(
-                    get: { deck.deckDescription ?? "" },
-                    set: { deck.deckDescription = $0 }
-                ))
+                TextField("Deck Description", text: deck.deckDescriptionBinding)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             }
@@ -70,60 +64,5 @@ struct DeckDetailsContentView: View {
             }
             .padding()
         }
-    }
-}
-
-struct QuestionCard: View {
-    @ObservedObject var question: Question
-    @State private var editableQuestion: String = ""
-    @State private var editableAnswer: String = ""
-    
-    var body: some View {
-        HStack(alignment: .top, spacing: 16) {
-            // Question
-            VStack(alignment: .leading) {
-                Text("Q:")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                TextEditor(text: $editableQuestion)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            // Answer
-            VStack(alignment: .trailing) {
-                Text("A:")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                TextEditor(text: $editableAnswer)
-            }
-            .frame(maxWidth: .infinity, alignment: .trailing)
-        }
-        .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(10)
-        .shadow(
-            color: Color.black.opacity(0.1),
-            radius: 5,
-            x: 0,
-            y: 2
-        )
-        .onAppear {
-            editableQuestion = question.question ?? ""
-            editableAnswer = question.answer ?? ""
-        }
-        .onChange(of: editableQuestion) { old, new in
-            question.question = editableQuestion
-        }
-        .onChange(of: editableAnswer) { old, new in
-            question.answer = editableAnswer
-        }
-    }
-}
-
-extension Deck {
-    var questionsForDetailsView: [Question] {
-        let set = self.questions as? Set<Question> ?? []
-        let sortedQuestions = set.sorted { $0.question ?? "" < $1.question ?? "" }
-        return sortedQuestions
     }
 }

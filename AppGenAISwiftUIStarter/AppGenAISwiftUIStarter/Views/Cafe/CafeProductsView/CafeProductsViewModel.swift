@@ -39,7 +39,7 @@ extension CafeProductsView.ViewModel: UpdateCafeProductUseCaseOutput {
             if let index = products.firstIndex(where: { $0.id == newProduct.id }) {
                 products[index] = newProduct
             }
-        case .failure(let failure):
+        case .failure:
             break
         }
     }
